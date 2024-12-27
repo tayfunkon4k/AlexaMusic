@@ -33,7 +33,7 @@ async def init():
         and not config.STRING4
         and not config.STRING5
     ):
-        LOGGER("AlexaMusic").error("Add Pyrogram string session and then try...")
+        LOGGER("AlexaMusic").error("Pyrogram dize oturumu ekleyin ve ardından deneyin...")
         sys.exit()
     await sudo()
     try:
@@ -48,26 +48,26 @@ async def init():
     await app.start()
     for all_module in ALL_MODULES:
         importlib.import_module("AlexaMusic.plugins" + all_module)
-    LOGGER("AlexaMusic.plugins").info("Necessary Modules Imported Successfully.")
+    LOGGER("AlexaMusic.plugins").info("Gerekli Modüller Başarıyla İçe Aktarıldı.")
     await userbot.start()
     await Alexa.start()
     try:
         await Alexa.stream_call("https://telegra.ph/file/b60b80ccb06f7a48f68b5.mp4")
     except (NoActiveGroupCall, GroupCallNotFound):
         LOGGER("AlexaMusic").error(
-            "[ERROR] - \n\nTurn on group voice chat and don't put it off otherwise I'll stop working thanks."
+            "[ERROR] - \n\nGrup sesli sohbetini açın ve ertelemeyin, aksi takdirde çalışmayı bırakacağım, teşekkürler."
         )
         sys.exit()
     except:
         pass
     await Alexa.decorators()
-    LOGGER("AlexaMusic").info("Alexa Music Bot Started Successfully")
+    LOGGER("AlexaMusic").info("Sagopa Müzik Botu Başarıyla Başlatıldı")
     await idle()
     await app.stop()
     await userbot.stop()
-    LOGGER("AlexaMusic").info("Stopping Alexa Music Bot...")
+    LOGGER("AlexaMusic").info("Sagopa Music Bot'u Durdurmak...")
 
 
 if __name__ == "__main__":
     app.run(init())
-    LOGGER("AlexaMusic").info("Stopping Music Bot")
+    LOGGER("AlexaMusic").info("Music Bot'u Durdurmak")
